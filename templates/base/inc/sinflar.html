@@ -1,0 +1,5 @@
+        <div class="list-group">
+            {% for item in sinf %}
+                <a href="{{ item.get_absolute_url }}" class="list-group-item"><i class="fa fa-graduation-cap" aria-hidden="true"></i> &nbsp;{{item.title}}</a>
+            {% endfor %}
+        </div>

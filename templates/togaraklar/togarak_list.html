@@ -1,0 +1,53 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load sidebar %}
+
+{% block title %} {{ title }} {% endblock title %}
+{% block content %}
+<section class="blog-page">
+    <div class="container">
+        <div class="row flex-row-reverse">
+            <div class="col-lg-8">
+
+            <!-- Янгиликлар блоки заголовкаси-->
+                <div class="section-title-5 text-center">
+                    <h2 class="title">{{ title }}</h2>
+                    <span class="line2"></span>
+                    
+                </div>
+                 <!--====== Gallery Бошланди ======-->
+
+            <div class="gallery-page">
+                <div class="container">
+                    <div class="row">
+                        {% for qs in image %}
+                            <div class="col-lg-3 col-sm-3">
+                                <div class="single-gallery mt-30">
+                                    <a class="image-popup" href="{{ qs.togarak_photo.url }}">
+                                        <img src="{{ qs.togarak_photo.url }}" alt="">
+
+                                    </a>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+
+                    </div>
+{#                    <ul class="pagination-items text-center">#}
+{#                        <li><a class="active" href="#">01</a></li>#}
+{#                        <li><a href="#">02</a></li>#}
+{#                        <li><a href="#">03</a></li>#}
+{#                        <li><a href="#">04</a></li>#}
+{#                        <li><a href="#">05</a></li>#}
+{#                    </ul>#}
+                </div>
+            </div>
+
+    <!--====== Gallery тугади ======-->
+
+            </div>
+            {% sidebar %}
+        </div>
+    </div>
+</section>
+{% endblock content %}

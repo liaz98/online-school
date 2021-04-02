@@ -1,0 +1,95 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load sidebar %}
+
+{% block title %} {{ title }}{{ block.super }} {% endblock title %}
+{% block content %}
+    <section class="blog-page">
+        <div class="container">
+            <div class="row flex-row-reverse">
+                <div class="col-lg-8">
+                    <div class="section-title-5 text-center">
+                        <h2 class="title">Maktab haqida</h2>
+                        <span class="line2"></span>
+                        {% comment %} <p>Har kunlik maktab hayotidan yangiliklar</p> {% endcomment %}
+                    </div>
+                    <div class="mt-30"></div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <center><img style="width: 30%" src="{% static 'images/base_logo.png' %}" width="350px">
+                            </center>
+                            <div class="mt-30"></div>
+                            <p style="text-align: justify;">
+                            <h4 style="text-align: center">Hurmatli sahifamiz mehmonlari!</h4>
+                            <br>
+                            <br>
+                            O’ylaymizki, maktabimiz sahifasida sizni qiziqtirgan barcha ma’lumotlarni topa olasiz.
+                            Sahifamizda
+                            <br>
+                            maktabimiz kundalik hayotini to’laqon yoritishga xarakat qildik.
+                            <br>
+                            <br>
+                            „Alfraganus NTM“ - nodavlat ta‘lim muassasasi yosh xususiy boshlang’ich maktab. Maktabning
+                            ish
+                            <br>
+                            faoliyati O’zbekiston respublikasi qonunchiligi va xalq ta’limi dasturi asosida yuritiladi.
+                            Litsenziyamiz
+                            <br>
+                            17.06.2020 kuni, UUT 0137 raqami ostida ro’yxatdan o‘tkazilgan. O’quvchilar 4-sinfni
+                            tugatgach da-
+                            <br>
+                            vlat namunasidagi bitiruv shahodatnomasini olishadi. Maktabda ta’lim o’zbek va rus tillarida
+                            olib bo-
+                            <br>
+                            boriladi.
+                            </p>
+                        </div>
+                        <div class="col-md-12"><a href="{% url 'maktab_haqida' %}" class="main-btn mt-25 float-right">Batafsil</a>
+                        </div>
+                    </div>
+                    <div class="mt-100"></div>
+                    <div class="section-title-5 text-center">
+                        <h2 class="title">Yangiliklar</h2>
+                        <span class="line2"></span>
+                        {% comment %} <p>Har kunlik maktab hayotidan yangiliklar</p> {% endcomment %}
+                    </div>
+                    <div class="row">
+
+                        {% for item in yangilik %}
+                            <div class="col-md-6">
+                                <div class="single-blog mt-30">
+                                    <div class="blog-image">
+                                        <a href="{{ item.get_absolute_url }}">
+                                        {% if item.photo %}
+                                            <img src="{{ item.photo.url }}" alt="{{ item.title }}">
+                                        {% endif %}
+                                        </a>
+                                    </div>
+
+                                    <div class="blog-content">
+                                        <ul class="meta">
+                                            <li><i class="fa fa-calendar" style="color: #07294d;"
+                                                   aria-hidden="true"></i> {{ item.created|date:'d.m.Y'}}</li>
+                                            {% comment %} <li><i class="fa fa-list-alt" style="color: #07294d;" aria-hidden="true"></i> Kategoriya : <a href="{{ item.category.get_absolute_url }}">{{ item.category.title }}</a></li> {% endcomment %}
+
+                                        </ul>
+                                        <h4 class="blog-title"><a
+                                                href="{{ item.get_absolute_url }}">{{ item.title }}</a></h4>
+                                        <a href="{{ item.get_absolute_url }}" class="more news-button">Batafsil<i
+                                                class="fal fa-chevron-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                        <div class="col-md-12">
+                            <a href="{% url 'yangiliklar' %}"
+                               class="main-btn mt-25 float-right">Hamma yangiliklar</a>
+                        </div>
+                    </div>
+                </div>
+                {% sidebar %}
+            </div>
+        </div>
+    </section>
+{% endblock content %}

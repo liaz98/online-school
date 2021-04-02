@@ -1,0 +1,51 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load sidebar %}
+
+{% block title %} {{ title }} {% endblock title %}
+{% block content %}
+    <section class="blog-page">
+        <div class="container">
+            <div class="row flex-row-reverse">
+                <div class="col-lg-8">
+
+                    <!-- Янгиликлар блоки заголовкаси-->
+                    <div class="section-title-5 text-center">
+                        <h2 class="title">{{ title|safe }}</h2>
+                        <span class="line2"></span>
+
+                    </div>
+                    <!-- Янгиликлар блоки заголовкаси тугади-->
+
+                    {% for item in teacher %}
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-8 teachers-col mt-50">
+                                    <div class="single-teacher-details mt-50 text-center">
+                                        <div class="teacher-image">
+                                            <a href="#">
+                                                <img src="{{ item.teacher_photo.url }}" alt="{{ item.teacher_name }}">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 teachers-col teachers-col mt-50">
+                                    <div class="teacher-details-content mt-45">
+                                        <p class="designation">{{ item.teacher_name }}</p>
+                                        <br>
+                                        <span style="font-size: 20px; color: #3e3838">{{ item.teacher_position }}</span><br>
+                                        <span class="designation">{{ room.sinflar.all }}</span>
+                                        <p>{{ item.teacher_content }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+                {% sidebar %}
+            </div>
+        </div>
+    </section>
+{% endblock content %}

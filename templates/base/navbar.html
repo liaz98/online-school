@@ -1,0 +1,81 @@
+
+<div class="col-lg-9 position-static">
+    <div class="d-block d-sm-none"><div class="nav-toggle"></div></div>
+    <nav class="nav-menus-wrapper">
+        <ul class="nav-menu">
+            <li>
+                <a style="font-size: 15px" href="{% url 'homepage' %}">Bosh sahifa</a>
+            </li>
+            <li>
+                <a style="font-size: 15px" href="#">Maktab hayoti</a>
+                    <ul class="nav-dropdown nav-submenu">
+                        <li> <a href="{% url 'sinflar' %}">Sinflar </a>
+                            <ul class="nav-dropdown nav-submenu">
+                                {% for item in sinf_nav %}
+                                <li><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li><a href="{% url 'kun_tartibi' %}">Kun tartibi</a></li>
+                        <li><a href="{% url 'jadval' %}">Asosiy darslar</a></li>
+                        <li><a href="{% url 'maktab_haqida' %}">Maktab haqida</a></li>
+                    <li><a href="{% url 'maktab_ramzi' %}">Maktab ramzi</a></li>
+                        <li><a href="{% url 'jarayon_list' %}">O'quv jarayoni</a><li>
+                        <li><a href="{% url 'oqituvchilar' %}">O'qituvchilar</a></li>
+
+                <li><a href="{% url 'kitchen' %}">Oshxona</a>
+                <ul class="nav-dropdown nav-submenu">
+                    <li><a href="{% url 'choy' %}">Tolmas choy</a></li>
+                </ul>
+                </li>
+
+                <ul class="nav-dropdown nav-submenu">
+                    <li><a href="#">Foydali maslahatlar</a></li>
+                    <li><a href="#">Joriy taomnoma</a></li>
+                    <li><a href="#">Arxiv</a></li>
+                </ul>
+            
+                      
+                </ul>
+            </li>
+            <li>
+                <a style="font-size: 15px" href="{% url 'fm_list' %}">Ota-onalarga</a>
+            </li>
+            <li>
+                <a style="font-size: 15px" href="#">Yangiliklar</a>
+                <ul class="nav-dropdown nav-submenu">
+                    <li><a href="{% url 'yangiliklar' %}">Yangiliklar</a></li>  
+                    <li><a href="{% url 'gallery' %}">Galereya</a></li>
+                    <li><a href="{% url 'omv' %}">OMV biz haqimizda</a></li>
+                </ul>
+            </li>
+            <li>
+                <a style="font-size: 15px" href="#">Kutubxona</a>
+                <ul class="nav-dropdown nav-submenu">
+                    <li><a href="https://eduportal.uz/Eduportal/Barchasi/33" target="_blank">Elektron darsliklar</a></li>
+                    <li><a href="https://eduportal.uz/Eduportal/Barchasi/17?submenu=5" target="_blank">Video darslar</a></li>
+                    <li><a href="{% url 'book' %}">Maktab kutubxonasi</a></li>
+                    <li><a href="https://eduportal.uz/" target="_blank">Eduportal.uz</a></li>
+                    <li><a href="https://itsm.uz/uz/edu-kids" target="_blank">Edukids.uz</a></li>                                               
+                </ul>
+            </li>
+            <li>
+                <a style="font-size: 15px" href="#">Qoidalar</a>
+                <ul class="nav-dropdown nav-submenu">
+                    <li><a href="{% url 'maktab_qoidalari'%}">Maktab qoidalari</a></li>
+                    <li><a href="{% url 'uzb' %}">O'zbekiston davlat belgilari</a></li>
+                    <li><a href="{% url 'normativ' %}">O'zbekiston davlat normativlari</a></li>
+                    <li><a href="{%  url 'file' %}">Ota-Onalar bilan shartnoma</a></li>
+                </ul>
+            </li>
+            <li>
+                <a style="font-size: 15px" href="{% url 'aloqa' %}">Aloqa</a>
+            </li>
+
+            
+        </ul>
+    </nav>
+</div>
+{% comment %} <div class="col-lg-2 position-static">
+    
+</div> {% endcomment %}

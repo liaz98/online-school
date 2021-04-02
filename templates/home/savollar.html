@@ -1,0 +1,55 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load sidebar %}
+
+{% block title %} {{ title }} {% endblock title %}
+{% block content %}
+<section class="blog-page">
+    <div class="container">
+        <div class="row flex-row-reverse">
+            <div class="col-lg-8">
+
+            <!-- Янгиликлар блоки заголовкаси-->
+                <div class="section-title-5 text-center">
+                    <h2 class="title">{{ title }}</h2>
+                    <span class="line2"></span>
+                    
+                </div>
+                 <!--====== Gallery Бошланди ======-->
+
+            <div class="gallery-page" style="padding-top: 20px;">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="faq-wrapper">
+                <div class="accordion" id="accordionExample">
+                    {% for item in savollar %}
+                    <div class="card">
+                        <span class="question">S:</span>
+                        <div class="card-header" id="headingOne">
+                            <a href="#" data-toggle="collapse" data-target="#see{{ item.pk }}">{{ item.savol }}</a>
+                        </div>
+
+                        <div id="see{{ item.pk }}" class="collapse" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <span class="answer">J:</span>
+                                <p>{{ item.javob }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+                    </div>
+                </div>
+            </div>
+
+    <!--====== Gallery тугади ======-->
+
+            </div>
+            {% sidebar %}
+        </div>
+    </div>
+</section>
+{% endblock content %}

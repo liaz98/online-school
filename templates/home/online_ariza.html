@@ -1,0 +1,59 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load sidebar %}
+
+<style>
+
+</style>
+
+{% block title %} {{ title }} {% endblock title %}
+{% block content %}
+    <section class="login-register">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="login-register-content">
+                        <h2 class="title">Online ariza</h2>
+                        <br>
+                        <div class="login-register-form">
+                            <form method="post" action="{% url 'send_mail' %}">
+                                {% csrf_token %}
+                                <h4>O'quvchi: </h4>
+                                <p style="margin: 15px"><b>Familiya: </b>{{ form.pupil_lastname }}</p>
+                                <p style="margin: 15px"><b>Ism: </b>{{ form.pupil_firstname }}</p>
+                                <p style="margin: 15px"><b>Tug'lugan kun: </b>{{ form.pupil_birthday }}</p>
+                                <p style="margin: 15px"><b>Qaysi sinfga o’qishga kelmoqchi: </b>{{ form.pupil_class }}</p>
+                                <hr>
+                                <h4>Onasi: </h4>
+                                <p style="margin: 15px"><b>Familiya: </b>{{ form.mother_lastname }}</p>
+                                <p style="margin: 15px"><b>Ism: </b>{{ form.mother_firstname }}</p>
+                                <p style="margin: 15px"><b>Tug'lugan kun: </b>{{ form.mother_birthday }}</p>
+                                <p style="margin: 15px"><b>Ish joyi: </b>{{ form.mother_work }}</p>
+                                <p style="margin: 15px"><b>Telefon: </b>{{ form.mother_phone }}</p>
+                                <p style="margin: 15px"><b>Email: </b>{{ form.mother_email }}</p>
+                                <hr>
+                                <h4>Otasi: </h4>
+                                <p style="margin: 15px"><b>Familiya: </b>{{ form.father_lastname }}</p>
+                                <p style="margin: 15px"><b>Ism: </b>{{ form.father_firstname }}</p>
+                                <p style="margin: 15px"><b>Tug'lugan kun: </b>{{ form.father_birthday }}</p>
+                                <p style="margin: 15px"><b>Ish joyi: </b>{{ form.father_work }}</p>
+                                <p style="margin: 15px"><b>Telefon: </b>{{ form.father_phone }}</p>
+                                <p style="margin: 15px"><b>Email: </b>{{ form.father_email }}</p>
+                                <div class="" style="text-align: left">
+                                    <b>Ma'lumotlarni ishlatishga ruxsatingiz: </b>
+                                    <div style="width: max-content; transform: scale(2.5);margin: 10px 0 0 8px !important;">
+                                        {{ form.condition }}
+                                    </div>
+                                </div>
+
+                                <div class="single-form">
+                                    <button type="submit" class="main-btn btn-block">Jo'natish</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

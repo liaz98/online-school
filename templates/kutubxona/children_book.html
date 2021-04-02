@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% extends 'base/base.html' %}
+        {% load static %}
+        {% load sidebar %}
+        {% block title_top %} {{ title_top }}{{ block.super }} {% endblock title_top %}
+        {% block content %}
+            <section class="blog-page">
+                <div class="container">
+                    <div class="row flex-row-reverse">
+                        <div class="col-lg-8">
+                            <div class="section-title-5 text-center">
+                                <h2 class="title">Maktab kutubxonasi</h2>
+                                <span class="line2"></span>
+                            </div>
+                             <div class="mt-60"></div>
+                            <p>
+                                Darslik kitoblar o’quvchilarga sinf rahbari orqali o’quv yili boshida tarqatiladi. Shu o’rinda darslik kitoblar uchun xalq ta’limi vazirligi tomonidan belgilangan ijara xaqi to’lanadi.
+Badiiy kitoblar sinf rahbari yoki maktab kutubxonasining mas’ul xodimi orqali cheklangan muddatga olinishi mumkin.
+Maktab kutubxonasining elektron tizimidagi kitoblar ro‘yxati hali tayyorlovda.
+                            </p>
+                            <div class="mt-80"></div>
+                            <div style="margin: auto 15px">
+                                <img src="{% static 'images/library.jpg' %}" alt="Loading...">
+                            </div>
+                            <div class="mt-80"></div>
+                            <div class="section-title-5 text-center">
+                                <h3 class="title">Maktab kutubxonasi</h3>
+                            </div>
+                            <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">№</th>
+                                    <th scope="col">Kitobning nomi</th>
+                                    <th scope="col">Muallifi</th>
+                                    <th scope="col">Matn</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    {% for item in table%}
+                                <tr>
+                                    <th scope="row">{{item.id}}</th>
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.author}}</td>
+                                    <td>{{item.language}}</td>
+                                </tr>
+                                    {% endfor %}
+                            </tbody>
+                        </table>
+                            <div>
+                                <ul>
+                                    <hr>
+                                    {% for item in link %}
+                                        <li style="text-align: center;">
+                                            <a href="{{ item.link }}" target="_blank">{{ item.public_link }}</a>
+                                        </li>
+                                        <hr>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                            {% if page_obj.has_other_pages %}
+                                <ul class="pagination-items text-center">
+                                    {% for p in page_obj.paginator.page_range %}
+                                        {% if page_obj.number == p %}
+                                            <li><a class="active">{{ p }}</a></li>
+                                        {% elif p > page_obj.number|add:-3 and p < page_obj.number|add:3 %}
+                                            <li><a class="active" href="?page={{ p }}">{{ p }}</a></li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+                        {% sidebar %}
+                    </div>
+                </div>
+            </section>
+        {% endblock content %}</title>
+</head>
+<body>
+
+</body>
+</html>

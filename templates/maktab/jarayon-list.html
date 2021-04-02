@@ -1,0 +1,61 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load sidebar %}
+
+{% block title_top %} {{title_top}}{{ block.super }} {% endblock title_top %}
+{% block content %}
+<section class="blog-page">
+    <div class="container">
+        <div class="row flex-row-reverse">
+            <div class="col-lg-8">
+
+            <!-- Янгиликлар блоки заголовкаси-->
+                <div class="section-title-5 text-center">
+                    <h2 class="title">O'quv jarayoni</h2>
+                    <span class="line2"></span>
+                    {% comment %} <p>Har kunlik maktab hayotidan yangiliklar</p> {% endcomment %}
+                </div>
+            <!-- Янгиликлар блоки заголовкаси тугади-->
+                <div class="row">
+                    {% for item in jarayon %}
+                        <div class="col-md-6">
+                            <div class="single-blog mt-30">
+                                <div class="blog-image">
+                                    <a href="{{ item.get_absolute_url }}">
+                                        {% if item.photo %}
+                                            <img src="{{ item.photo.url }}" alt="{{ item.title }}">
+                                        {% else %}
+                                            <img src="{% static 'images/blog-1.jpg' %}" alt="{{ item.title }}">
+                                        {% endif %}
+                                    </a>
+                                </div>
+                                <div class="blog-content">
+                                    <ul class="meta">
+                                        <li><a href="#">{{item.created|date:'d.m.Y'}}</a></li>
+                                        {% comment %} <li><a href="#">By: Alex</a></li>
+                                        <li><a href="#">12 Comments</a></li> {% endcomment %}
+                                    </ul>
+                                    <h4 class="blog-title"><a href="{{ item.get_absolute_url }}">{{item.title}}</a></h4>
+                                    <a href="{{ item.get_absolute_url }}" class="more">Batafsil <i class="fal fa-chevron-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                {% if page_obj.has_other_pages %}
+                    <ul class="pagination-items text-center">
+                        {% for p in page_obj.paginator.page_range %}
+                            {% if page_obj.number == p %}
+                                <li><a class="active" >{{ p }}</a></li>
+                            {% elif p > page_obj.number|add:-3 and p < page_obj.number|add:3 %}
+                                <li><a class="active" href="?page={{ p }}">{{ p }}</a></li>
+                            {% endif %}
+                {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            {% sidebar %}
+        </div>
+    </div>
+</section>
+{% endblock content %}

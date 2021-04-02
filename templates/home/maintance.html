@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load static %}
+{% load sidebar %}
+
+{% block title %} {{ title }} {% endblock title %}
+{% block content %}
+<section class="blog-page">
+    <div class="container">
+        <div class="row flex-row-reverse">
+            <div class="col-lg-8">
+                <center><img src="{% static 'images/maintance.png' %}"> <center>
+            </div>
+            {% sidebar %}
+        </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

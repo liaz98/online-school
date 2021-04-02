@@ -1,0 +1,87 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load sidebar %}
+
+{% block title %} {{ title }} {% endblock title %}
+{% block content %}
+<section class="blog-page">
+    <div class="container">
+        <div class="row flex-row-reverse">
+            <div class="col-lg-8">
+
+            <!-- Янгиликлар блоки заголовкаси-->
+                <div class="section-title-5 text-center">
+                    <h2 class="title">{{ title }}</h2>
+                    <span class="line2"></span>
+
+                </div>
+            <!-- Янгиликлар блоки заголовкаси тугади-->
+
+                        <!-- O`qituvchi surati-->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 teachers-col mt-50">
+                                <div class="mt-30"></div>
+                                    <center><img src="{% static 'images/about_pic.jpg' %}" width="100%"></center>
+                                <div class="mt-30"></div>
+                                <p class="text-justify">
+                                    Hurmatli sahifamiz mehmonlari!
+                                    <br>
+                                    O’ylaymizki, maktabimiz sahifasida sizni qiziqtirgan barcha ma’lumotlarni topa olasiz. Sahifamizda
+                                    <br>
+                                    maktabimiz kundalik hayotini to’laqon yoritishga xarakat qildik.
+                                    <br>
+                                    <br>
+                                    „Alfraganus NTM“ - nodavlat ta‘lim muassasasi yosh xususiy boshlang’ich maktab. Maktabning ish
+                                    <br>
+                                    faoliyati O’zbekiston respublikasi qonunchiligi va xalq ta’limi dasturi asosida yuritiladi. Litsenziyamiz
+                                    <br>
+                                    17.06.2020 kuni, UUT 0137 raqami ostida ro’yxatdan o‘tkazilgan. O’quvchilar 4-sinfni tugatgach da-
+                                    <br>
+                                    vlat namunasidagi bitiruv shahodatnomasini olishadi. Maktabda ta’lim o’zbek va rus tillarida olib bo-
+                                    <br>
+                                    riladi.
+                                    <br>
+                                    <br>
+                                    Boshlang’ich maktabimizda o’quvchilarda bilimga nisbatan muxabbat uyg’otishga, ularning intellek-
+                                    <br>
+                                    tual, ijodiy va jismoniy rivojlanishlariga, yetuk inson sifatida shakllanishlariga katta e’tibor qaratiladi.
+                                    <br>
+                                    <br>
+                                    Biz o’quvchilarga mustaqil fikrlashni, o’z ustida ishlashni, to’g’ri qaror qabul qilishni o’rgatishga xa-
+                                    <br>
+                                    rakat qilamiz.
+                                    <br>
+                                    <br>
+                                    O’quvchilarimiz maktabda ta’limdan tashqari muomalani, ota-onalariga, uztozlariga va tengdoshla-
+                                    <br>
+                                    riga nisbatan xurmat bilan qarashni o’rganishadi. Maqsadimiz, o’quvchilarimiz ertaga kechagidan
+                                    <br>
+                                    ko’ra takomilroq bo’lishsin.
+                                    <br>
+                                    <br>
+                                    Maktabimizda yuqori malakali, ko’p yillik tajribaga ega o’qituvchilar bilan bir qatorda yosh, hali o’zlari
+                                    <br>
+                                    bilimga chanqoq o’qituvchilar ishlashadi. Doimiy o’z ustida ishlash, malaka oshirish – o’qituvchilari
+                                    <br>
+                                    mizning muvaffaqiyatlari o’zagi.
+                                    <br>
+                                    <br>
+                                    Maktabimiz hayotidagi markaziy nuqta – bu o’quvchilarimiz. Barcha bilimimiz, mahoratimiz, xarakat-
+                                    <br>
+                                    larimiz – maktabimiz o‘quvchilari va ularning rivojlanishi uchun sarflanadi. O’quvchilarning mak-
+                                    <br>
+                                    tabimizda olgan sabog’i va tarbiyasi ularning bir umrlik hamrohi bo’lib qolishiga ishonchimiz komil.
+                                    <br>
+                                    Farzandingizga munosib maktab tanlayotib uning kelajagini tanlayotganingizga ishonamiz!
+                                 </p>
+                            </div>
+                            <!--O`qituvchi ma`lumoti -->
+                        </div>
+                    </div>
+            </div>
+            {% sidebar %}
+        </div>
+    </div>
+</section>
+{% endblock content %}

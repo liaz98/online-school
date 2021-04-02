@@ -1,0 +1,57 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load sidebar %}
+
+{% block title_top %} {{title}}{{ block.super }} {% endblock title_top %}
+{% block content %}
+<section class="blog-page">
+    <div class="container">
+        <div class="row flex-row-reverse">
+            <div class="col-lg-8">
+
+            {% comment %} <!-- Янгиликлар блоки заголовкаси-->
+                <div class="section-title-5 text-center">
+                    <h2 class="title">Yangiliklar</h2>
+                    <span class="line2"></span>
+                    <p>Har kunlik maktab hayotidan yangiliklar</p>
+                </div>
+            <!-- Янгиликлар блоки заголовкаси тугади--> {% endcomment %}
+                <div class="row">
+                    {% for item in sinf %}
+                    <div class="col-lg-6 col-sm-6 courses-col">
+                        <div class="single-courses-2 mt-30">
+                            <div class="courses-image">
+                                <a href="{{item.get_absolute_url}}"><img src="{{ item.school_photo.url }}" alt="{{ item.title }}"></a>
+                            </div>
+                            <div class="courses-content">
+                                <h4 class="courses-title"><a href="{{item.get_absolute_url}}">{{ item.title }}</a></h4>
+                                <hr/> 
+                                <div class="courses-link2">
+                                    
+                                    <a class="more" href="{{item.get_absolute_url}}">Batafsil <i class="fal fa-chevron-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- PAGINATION-->
+                {% if page_obj.has_other_pages %}
+                    <ul class="pagination-items text-center">
+                        {% for p in page_obj.paginator.page_range %}
+                            {% if page_obj.number == p %}
+                            <li><a class="active" >{{ p }}</a></li>
+                            {% elif p > page_obj.number|add:-3 and p < page_obj.number|add:3 %}
+                            <li><a href="?page={{ p }}">{{ p }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <!-- PAGINATION-->
+            </div>
+            {% sidebar %}
+        </div>
+    </div>
+</section>
+{% endblock content %}

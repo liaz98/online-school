@@ -1,0 +1,117 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load sidebar %}
+
+{% block title %} {{ title }} {% endblock title %}
+{% block content %}
+<!--====== Contact Start ======-->
+
+
+    <section class="contact-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row justify-content-center">
+                        <div class="section-title-5 text-center">
+                            <h2 class="title">Biz bilan aloqa</h2>
+                            <span class="line2"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12"><div class="row">
+                    <div class="mt-50"></div>
+                </div></div>
+                <div class="col-md-12">
+                   {{ address.map|safe }}
+                </div>
+                <div class="col-md-4">
+                    <div class="single-contact-info mt-30">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h5 class="title">Manzil</h5>
+                            <p>{{ address.adress|safe }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="single-contact-info mt-30">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <h5 class="title">Telefon</h5>
+                            <p><a href="{{ address.phone }}">{{ address.phone }}</a></p>
+                            <p><a href="{{ second_phone }}"> {{ address.second_phone }}</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="single-contact-info mt-30">
+                        <div class="info-icon">
+                            <i class="far fa-globe"></i>
+                        </div>
+                        <div class="info-content">
+                            <h5 class="title">Email</h5>
+                            <p><a href="mailto://info@example.com">{{ address.email }}</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="contact-title text-center">
+                            <h3 class="title">Xabaringizni shu yerga yozishingiz mumkin</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="contact-form-wrapper">
+                            <form id="contact-form" action="{% url 'aloqa' %}" method="post">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="single-form">
+                                            {{ aloqa.subject }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="single-form">
+                                            {{ aloqa.first_name }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="single-form">
+                                            {{ aloqa.email }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="single-form">
+                                            {{ aloqa.phone }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="single-form">
+                                            {{ aloqa.message }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="single-form text-center">
+                                            <button type="submit" class="main-btn btn-block">Jo'natish</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--====== Contact Ends ======-->
+{% endblock content %}

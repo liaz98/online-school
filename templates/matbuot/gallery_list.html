@@ -1,0 +1,57 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load sidebar %}
+
+{% block title %} {{ title }} {% endblock title %}
+{% block content %}
+<section class="blog-page">
+    <div class="container">
+        <div class="row flex-row-reverse">
+            <div class="col-lg-8">
+
+            <!-- Янгиликлар блоки заголовкаси-->
+                <div class="section-title-5 text-center">
+                    <h2 class="title">Galereya</h2>
+                    <span class="line2"></span>
+                </div>
+                 <!--====== Gallery Бошланди ======-->
+                    <div class="col-md-12">
+                        <div class="row">
+                            {% for item in categories %}
+                            <div class="col-lg-6 col-sm-6 courses-col">
+                                <div class="single-courses-2 mt-30">
+                                    <div class="courses-image">
+                                        <a href="{{ item.title }}">
+                                            <img src="{{ item.image.url }}" alt="courses">
+                                        </a>
+                                    </div>
+                                    <div class="courses-content">
+                                        <h4 class="courses-title">
+                                            <a href="{{ item.title }}">
+                                                {{ item.title }}
+                                            </a>
+                                        </h4>
+                                        <div class="duration-rating">
+                                        </div>
+                                        <div class="courses-link2">
+                                            <a class="more" href="{{ item.title }}">
+                                                Batafsil <i class="fal fa-chevron-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+
+
+                 <!--====== Gallery тугади ======-->
+
+            </div>
+            {% sidebar %}
+        </div>
+    </div>
+</section>
+{% endblock content %}

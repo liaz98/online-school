@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load sidebar %}
+
+<style>
+
+</style>
+
+{% block title %} {{ title }} {% endblock title %}
+{% block content %}
+    <section class="login-register">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+
+                    <h2 style="text-align: center; color: {{ color }}">{{ message }}</h2>
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

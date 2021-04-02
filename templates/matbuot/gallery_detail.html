@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load sidebar %}
+
+{% block title %} {{ title }} {% endblock title %}
+{% block content %}
+    <section class="blog-page">
+        <div class="container">
+            <div class="row flex-row-reverse">
+                <div class="col-lg-8">
+                    <div class="section-title-5 text-center">
+                        <h2 class="title">{{ title }}</h2>
+                        <span class="line2"></span>
+                    </div>
+                    <div class="gallery-page">
+                        <div class="container">
+                            <div class="row">
+                                {% for item in images %}
+                                    <div class="col-lg-6 col-sm-6">
+                                        <div class="single-gallery mt-30">
+                                            <a class="image-popup" href="{{ item.image.url }}">
+                                                <img src="{{ item.image.url }}" alt="{{ item.title }}">
+                                            </a>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% sidebar %}
+            </div>
+        </div>
+    </section>
+{% endblock content %}

@@ -1,0 +1,118 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load sidebar %}
+
+{% block title %} {{ title }} {% endblock title %}
+{% block content %}
+<section class="blog-page">
+    <div class="container">
+        <div class="row flex-row-reverse">
+            <div class="col-lg-8">
+
+                <!-- Янгиликлар блоки заголовкаси-->
+                <div class="section-title-5 text-center">
+                    <h2 class="title">{{ qd.title }}</h2>
+                    <span class="line2"></span>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12">
+                        <div class="mt-100">{{ qd.content }}</div>
+                    </div>
+                </div>
+                <!--====== Gallery Бошланди ======-->
+
+                <div class="gallery-page">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6">
+                                {% if qd.rasm1 %}
+                                <div class="single-gallery mt-30">
+                                    <a class="image-popup" href="{{ qd.rasm1.url }}">
+                                        <img src="{{ qd.rasm1.url }}" alt="">
+                                    </a>
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="col-lg-6 col-sm-6" style="margin-top: 15px">
+                                {% if qd.rasm2 %}
+                                <div class="single-gallery mt-30">
+                                    <a class="image-popup" href="{{ qd.rasm2.url }}">
+                                        <img src="{{ qd.rasm2.url }}" alt="">
+                                    </a>
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="col-lg-6 col-sm-6" style="margin-top: 15px">
+                                {% if qd.rasm3 %}
+                                <div class="single-gallery mt-30">
+                                    <a class="image-popup" href="{{ qd.rasm3.url }}">
+                                        <img src="{{ qd.rasm3.url }}" alt="">
+                                    </a>
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="col-lg-6 col-sm-6" style="margin-top: 15px">
+                                {% if qd.rasm4 %}
+                                <div class="single-gallery mt-30">
+                                    <a class="image-popup" href="{{ qd.rasm4.url }}">
+                                        <img src="{{ qd.rasm4.url }}" alt="">
+                                    </a>
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="col-lg-6 col-sm-6" style="margin-top: 15px">
+                        {% if qd.videofile1 %}
+                      <video controls
+                               controlsList="nodownload"
+                               src="{{ MEDIA_URL }}{{ qd.videofile1.url }}"
+                               width="355"
+                              >
+                            Sorry, your browser doesn't support embedded videos.
+                        </video>
+                        {% endif %}
+                    </div>
+                    <div class="col-lg-6 col-sm-6" style="margin-top: 15px">
+                         {% if qd.videofile2 %}
+                      <video controls
+                               controlsList="nodownload"
+                               src="{{ MEDIA_URL }}{{ qd.videofile2.url }}"
+                               width="355"
+                               >
+                            Sorry, your browser doesn't support embedded videos.
+                        </video>
+                        {% endif %}
+                    </div>
+                             <div class="col-lg-6 col-sm-6" style="margin-top: 15px">
+                         {% if qd.videofile3 %}
+                      <video controls
+                               controlsList="nodownload"
+                               src="{{ MEDIA_URL }}{{ qd.videofile3.url }}"
+                               width="355"
+                               >
+                            Sorry, your browser doesn't support embedded videos.
+                        </video>
+                        {% endif %}
+                    </div>
+                    <div class="col-lg-6 col-sm-6" style="margin-top: 15px">
+                        {% if qd.videofile4 %}
+                      <video controls
+                               controlsList="nodownload"
+                               src="{{ MEDIA_URL }}{{ qd.videofile4.url }}"
+                               width="355"
+                              >
+                            Sorry, your browser doesn't support embedded videos.
+                        </video>
+                        {% endif %}
+                    </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--====== Gallery тугади ======-->
+
+            </div>
+            {% sidebar %}
+        </div>
+    </div>
+</section>
+{% endblock content %}

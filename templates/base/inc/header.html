@@ -1,0 +1,133 @@
+{% load static %}
+{% load navbar %}
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <!--====== Title ======-->
+    <title>{% block title %} :: Alfraganus {% endblock %}</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
+
+
+    <!-- CSS
+    ============================================ -->
+
+    <!--===== Vendor CSS (Bootstrap & Icon Font) =====-->
+
+    <link rel="stylesheet" href="{% static 'css/plugins/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/default.css' %}">
+
+
+    <!--===== Plugins CSS (All Plugins Files) =====-->
+    <link rel="stylesheet" href="{% static 'css/plugins/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/magnific-popup.css' %}">
+
+    <!--====== Main Style CSS ======-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
+
+
+    <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
+
+    <!-- <link rel="stylesheet" href="{% static 'css/vendor/plugins.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/style.min.css' %}"> -->
+
+
+</head>
+
+<body>
+<!-- LOADER -->
+<script>
+    $('body').scrollgress({
+        // height in pixels
+        height: '5px',
+        // background color
+        color: '#f86d1c',
+        zIndex: '99999',
+    });
+</script>
+
+<!--====== Header Start ======-->
+
+<header class="header-area">
+    <div class="header-top">
+        <div class="container">
+            <div class="header-top-wrapper d-flex flex-wrap justify-content-sm-between">
+                <div class="header-top-left mt-10">
+                    <ul class="header-meta">
+                        <li class="d-inline"><a
+                                href="https://maps.google.com/maps?q=40.528069,70.933506&ll=40.528069,70.933506&z=16">150700,
+                            Qo`qon shahar, Naqshbandiy ko'chasi, 2</a></li>
+                        <span style="color:white">|</span>
+                        <li class="d-inline"><a class="contacts" href="tel:+998944404604">+998 94 440-46-04</a></li>
+                        <span style="color:white">|</span>
+                        <li class="d-inline"><a class="contacts" href="tel:+998905566741">+998 90 556-67-41</a></li>
+                    </ul>
+                </div>
+                <div class="header-top-right mt-10">
+                    <div class="header-link">
+
+
+                        <a class="" style="color:white !important;" href="{% url 'savollar' %}">Savollar va Javoblar</a> <span
+                            style="color:white;margin-right: 10px;margin-left: 10px;">|</span>
+                        <!-- Lang here --><span
+                            style="color:white;margin-right: 10px;margin-left: 10px;">|</span>
+                        <a class="notice" href="{% url 'send_mail' %}">
+                            <div class="topbutton">Onlayn ariza</div>
+                        </a> <span style="color:white;margin-right: 10px;margin-left: 10px;">|</span>
+                        <a style="font-size: 17px;" class="notice" href="login.html"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a style="font-size: 17px;" class="notice" href="https://t.me/AlfraganusNTMQuqon"><i class="fab fa-telegram"></i></a>
+                        <a style="font-size: 17px;" class="notice" href=""><i
+                                class="fab fa-instagram"></i></a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="navigation" class="navigation navigation-landscape">
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-lg-3">
+                    <a href="{% url 'homepage' %}">
+                        <div style="cursor: pointer" class="header-logo">
+                            <div class="margin5">
+                                <embed type="image/svg+xml" src="{% static 'images/logo.svg' %}"/>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+                {% navbar %}
+
+            </div>
+        </div>
+    </div>
+</header>
+
+<!--====== Header Ends ======-->
+
+<!--====== Page Banner Start ======-->
+
+<section class="page-banner">
+    <div class="page-banner-bg bg_cover" style="background-image: url({% static 'images/coverheader2.jpg' %});">
+        <div class="container">
+            <div class="banner-content text-center">
+                {% comment %} <h2 class="title">{{header_title}}</h2> {% endcomment %}
+            </div>
+        </div>
+    </div>
+</section>
+<!--====== Page Banner Ends ======-->

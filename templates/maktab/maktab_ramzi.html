@@ -1,0 +1,66 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load sidebar %}
+
+{% block title %} {{ title }} {% endblock title %}
+{% block content %}
+    <section class="blog-page">
+        <div class="container">
+            <div class="row flex-row-reverse">
+                <div class="col-lg-8">
+
+                    <!-- Янгиликлар блоки заголовкаси-->
+                    <div class="section-title-5 text-center">
+                        <h2 class="title">{{ title }}</h2>
+                        <span class="line2"></span>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 teachers-col mt-50">
+                                <div class="mt-30"></div>
+                                <center><img style="width: 30%" src="{% static 'images/base_logo.png' %}" width="350px">
+                                </center>
+                                <div class="mt-30"></div>
+                                <p class="text-justify">
+                                    Maktabimiz ramzida boshlang’ich maktab tashkillashtirishdan bo’lgan maqsadlarimizni
+                                    aks ettirishga
+                                    <br>
+                                    xarakat qildik:
+                                    <br>
+                                    <br>
+                                    Oq ranglik umumiy orqa ko’rinish – yorug‘lik va sog’lomlik belgisi,
+                                    <br>
+                                    sariq va ko’k ranglardagi uzuklar – bizni qo’mrab turgan dunyomiz, maktabdagi
+                                    do’stona muhit
+                                    <br>
+                                    hamda beg’ubor va musaffo munosabat.
+                                    <br>
+                                    <br>
+                                    Davlatimiz bayrog‘i sifatida ifodalangan kitob – milliy tarix va vatanparvarlik
+                                    tuyg’usiga to’la tarbiya,
+                                    <br>
+                                    Tonggi quyosh – porloq kelajak ramzi,
+                                    <br>
+                                    <br>
+                                    Yosh nihol – bu albatta maqsadimiz markazi, o’sib kelayotgan o’quvchilarimiz,
+                                    <br>
+                                    <br>
+                                    ALFRAGANUS – maktabimiz ulug‘ ajdodimiz nomi bilan atalgan;
+                                    <br>
+                                    <br>
+                                    Nodavlat ta’lim muassasasi – maktabimiz faoliyati shakli;
+                                    <br>
+                                    <br>
+                                    2020 – maktabimizning tashkil topgan yili.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                {% sidebar %}
+            </div>
+        </div>
+    </section>
+{% endblock content %}
